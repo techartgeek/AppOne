@@ -1,6 +1,7 @@
 var express = require('express');
 
 var app = express();
+app.set('port', process.env.PORT || 3000);
 
 var fortune = require('./lib/fortune.js');
 
@@ -14,8 +15,6 @@ app.set('view engine', 'handlebars');
 
 //static resource handler (middleware)
 app.use(express.static(__dirname + '/public'));
-
-app.set('port', process.env.PORT || 3000);
 
 //home page
 app.get('/', function (req, res) {
