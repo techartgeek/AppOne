@@ -8,6 +8,9 @@ var handlebars = require('express3-handlebars').create({defaultLayout: 'main'});
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
+//static resource handler (middleware)
+app.use(express.static(__dirname + '/public'));
+
 app.set('port', process.env.PORT || 3000);
 
 //home page
