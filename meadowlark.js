@@ -30,7 +30,8 @@ app.get('/', function (req, res) {
 
 //about page
 app.get('/about', function (req, res) {
-    res.render('about');
+    var randomFortune = fortunes[Math.floor(Math.random()*fortunes.length)];
+    res.render('about', {fortune: randomFortune});
 });
 
 //custom 404 catch-all handler (middleware)
